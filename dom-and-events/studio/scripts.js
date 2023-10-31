@@ -52,10 +52,11 @@ window.addEventListener("load", function() {
     let upButton = document.getElementById('up');
     upButton.addEventListener("click", event => {
         // window.alert(imgObj.style.bottom);
-        // if (imgObj.style.bottom < '100%') {
+        // window.alert(shuttleBackground.offsetHeight);
+        if ((parseInt(imgObj.style.bottom) + 75) < shuttleBackground.offsetHeight) {
         imgObj.style.bottom = ((parseInt(imgObj.style.bottom) + 10) +"px");
         shuttleHeight.innerHTML = (10000 + Number(shuttleHeight.innerHTML));
-        // }
+        }
     })
 
     let downButton = document.getElementById('down');
@@ -81,10 +82,14 @@ window.addEventListener("load", function() {
     rightButton.addEventListener("click", event => {
         // window.alert(imgObj.style.right);
         // window.alert(parseInt(imgObj.style.right));
-        if (parseInt(imgObj.style.right) > 0) {
+        // window.alert("Offset width: " + shuttleBackground.offsetWidth);
+        // window.alert("Client width: " + shuttleBackground.clientWidth);
+        if (parseInt(imgObj.style.right) < shuttleBackground.offsetWidth) {
         let currentRight = imgObj.offsetLeft;
         // window.alert(currentRight);
         imgObj.style.left = ((currentRight + 10) + "px");
+        imgObj.style.right = ((parseInt(imgObj.style.left) + 75) + "px");
+        // window.alert(imgObj.style.right);
         }
     })
 
